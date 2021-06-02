@@ -1,3 +1,13 @@
+#SOURCE CODE
+
+The sorce code written in c++ is in main directory, not the main in the app directory.
+
+
+
+
+
+
+
 # SDL2 Android Example
 
 Read article at blog: https://georgik.rocks/tag/sdl2/
