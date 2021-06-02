@@ -7,7 +7,6 @@
 #include <map>
 #include "../AssetManager.h"
 
-
 class SpriteComponent : public Component
 {
 private:
@@ -20,9 +19,9 @@ private:
 	int speed = 100;
 
 public:
-
+    std::string animNames[4];
 	int animIndex = 0;
-	std::map<const char*, Animation> animations;
+	std::map<std::string, Animation> animations;
 
 	SDL_RendererFlip spriteFlip = SDL_FLIP_NONE;
 
@@ -46,7 +45,24 @@ public:
 
 		setTex(id);
 	}
+	SpriteComponent(std::string id,std::string names[],Animation anim[],int n,int play)
+	{
+	    //animNames = names;
+		for(int i=0;i<n;i++){
+            animNames[i]=names[i];
+			animations.emplace(names[i],anim[i]);
+		}
+		Animation idle = Animation(0, 3, 100);
+		Animation walk = Animation(1, 8, 100);
 
+		//animations.emplace("Idle", idle);
+		//animations.emplace("Walk", walk);
+
+		//Play("Idle");
+		Play(names[play]);
+
+		setTex(id);
+	}
 	~SpriteComponent()
 	{
 	}
@@ -87,7 +103,7 @@ public:
 		TextureManager::Draw(texture, srcRect, destRect, spriteFlip);
 	}
 
-	void Play(const char* animName)
+	void Play(std::string animName)
 	{
 		frames = animations[animName].frames;
 		animIndex = animations[animName].index;

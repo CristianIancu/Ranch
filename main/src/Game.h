@@ -33,8 +33,12 @@ public:
 	{
 		groupMap,
 		groupPlayers,
+		groupChickens,
+		groupCows,
+        groupSheeps,
+        groupPigs,
 		groupColliders,
-		groupProjectiles
+		groupEggs
 	};
 
 private:

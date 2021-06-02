@@ -4,6 +4,7 @@
 #include "ECS\ECS.h"
 #include "ECS\Components.h"
 
+//
 extern Manager manager;
 
 Map::Map(std::string tID, int ms, int ts) : texID(tID), mapScale(ms), tileSize(ts)

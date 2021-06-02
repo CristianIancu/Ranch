@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL.h>
-
+#include "ECS\ColliderComponent.h"
 class ColliderComponent;
 
 class Collision
